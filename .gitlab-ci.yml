@@ -1,0 +1,64 @@
+image: docker:latest
+
+services:
+  - name: docker:dind
+    command: ["dockerd", "--host=tcp://0.0.0.0:2375", "--insecure-registry=172.16.58.227:5005"]
+
+variables:
+  DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_TLS_CERTDIR: ""
+  REGISTRY_HOST: "172.16.58.227:5005"
+  IMAGE_NAME: "172.16.58.227:5005/smaszbadz/contract-nextjs"
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "Waiting for docker daemon..."
+    - until docker info; do sleep 1; done
+    
+    - echo "Login to GitLab registry..."
+    - echo "$GITLAB_PASSWORD" | docker login --username $GITLAB_USER --password-stdin $REGISTRY_HOST
+    
+    - echo "Building Docker image..."
+    - docker build -t $IMAGE_NAME:$CI_COMMIT_SHA .
+    - docker tag $IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_NAME:latest
+    
+    - echo "Pushing to registry..."
+    - docker push $IMAGE_NAME:$CI_COMMIT_SHA
+    - docker push $IMAGE_NAME:latest
+
+deploy:
+  stage: deploy
+  before_script:
+    - mkdir -p ~/.ssh && touch ~/.ssh/known_hosts
+    - ssh-keyscan -H 172.16.58.230 >> ~/.ssh/known_hosts
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/gitlab_ci_key
+    - chmod 600 ~/.ssh/gitlab_ci_key
+  script:
+    - echo "Deploying on Docker server..."
+    - ssh -i ~/.ssh/gitlab_ci_key administrator@172.16.58.230 "
+        echo 'Login to registry...';
+        docker login -u $GITLAB_USER -p $GITLAB_PASSWORD $REGISTRY_HOST;
+
+        echo 'Pulling latest image...';
+        docker pull $IMAGE_NAME:latest;
+
+        echo 'Setting environment variables...';
+        export NEXTAUTH_SECRET='${NEXTAUTH_SECRET}';
+        export NEXTAUTH_URL='${NEXTAUTH_URL}';
+        export LOGIN_API_URL='${LOGIN_API_URL}';
+        export CONTRACT_API_URL='${CONTRACT_API_URL}';
+        export HR_API_URL='${HR_API_URL}';
+
+        echo 'Updating containers...';
+        cd /home/administrator/Applications/Contract/Nextjs;
+        docker compose down;
+        docker compose up -d;
+        
+        echo 'Cleaning up...';
+        docker system prune -a -f;
+      "

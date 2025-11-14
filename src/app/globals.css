@@ -1,0 +1,550 @@
+@import "tailwindcss";
+
+/*---break---*/
+@custom-variant dark (&:is(.dark *));
+@theme {
+  --color-mint-50: #f2f9f7;
+  --color-mint-100: #e6f2f0;
+  --color-mint-200: #d9ece8;
+  --color-mint-300: #b4d9d1;
+  --color-mint-400: #9accc3;
+  --color-mint-500: #80bfb4;
+  --color-mint-600: #6ea69c;
+  --color-mint-700: #5d8d85;
+  --color-mint-800: #4d756e;
+  --color-mint-900: #2e4844;
+
+  --color-biscuit-50: #fdf0e2;
+  --color-biscuit-100: #fce9d3;
+  --color-biscuit-200: #fadab5;
+  --color-biscuit-300: #f7ca97;
+  --color-biscuit-400: #f4bb77;
+  --color-biscuit-500: #f2b366;
+  --color-biscuit-600: #e7a85c;
+  --color-biscuit-700: #b4844a;
+  --color-biscuit-800: #966e3c;
+  --color-biscuit-900: #5e4323;
+
+  --color-pinky-50: #f8ecf6;
+  --color-pinky-100: #f1daec;
+  --color-pinky-200: #edd1e8;
+  --color-pinky-300: #e5bede;
+  --color-pinky-400: #ddacd5;
+  --color-pinky-500: #d9a3d0;
+  --color-pinky-600: #bc8db5;
+  --color-pinky-700: #a1789a;
+  --color-pinky-800: #6c4f67;
+  --color-pinky-900: #533c4f;
+
+  --color-sea-50: #e9f3fa;
+  --color-sea-100: #d4e6f5;
+  --color-sea-200: #bedaf0;
+  --color-sea-300: #b3d4ed;
+  --color-sea-400: #9ec7e8;
+  --color-sea-500: #93c1e5;
+  --color-sea-600: #77abd5;
+  --color-sea-700: #6c8faa;
+  --color-sea-800: #475f72;
+  --color-sea-900: #364958;
+
+  --color-lightPurple-50: #e7e7f4;
+  --color-lightPurple-100: #d0d0e9;
+  --color-lightPurple-200: #b9b9de;
+  --color-lightPurple-300: #aeaed8;
+  --color-lightPurple-400: #9997cc;
+  --color-lightPurple-500: #8e8cc6;
+  --color-lightPurple-600: #7b79ac;
+  --color-lightPurple-700: #686792;
+  --color-lightPurple-800: #444362;
+  --color-lightPurple-900: #34334b;
+
+  --color-latte-50: #f3ede5;
+  --color-latte-100: #e7dbcb;
+  --color-latte-200: #e0d2bf;
+  --color-latte-300: #d4c0a5;
+  --color-latte-400: #c8af8c;
+  --color-latte-500: #c2a680;
+  --color-latte-600: #a8906e;
+  --color-latte-700: #8f7a5d;
+  --color-latte-800: #60513d;
+  --color-latte-900: #493e2e;
+
+  --color-pastelBlue-500: #809cc2;
+}
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+:root {
+  --mint: #80bfb4;
+  --pink: #d9a3d0;
+  --orange: #f2b366;
+  --sea: #93c1e5;
+  --purple: #8e8cc6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}*/
+.bg-mint-50 {
+  background-color: #f2f9f7;
+}
+.bg-mint-100 {
+  background-color: #e6f2f0;
+}
+.bg-mint-200 {
+  background-color: #d9ece8;
+}
+.bg-mint-500 {
+  background-color: var(--mint);
+}
+.bg-mint-600 {
+  background-color: #6ea69c;
+}
+.bg-pinky {
+  background-color: var(--pink);
+}
+.bg-biscuit {
+  background-color: var(--orange);
+}
+.bg-sea {
+  background-color: var(--sea);
+}
+.bg-lightPurple {
+  background-color: var(--purple);
+}
+.bg-latte-500 {
+  background-color: #c2a680;
+}
+.text-mint-500 {
+  color: var(--mint);
+}
+.text-mint-600 {
+  color: #6ea69c;
+}
+.text-pinky-500 {
+  color: var(--pink);
+}
+.text-biscuit-500 {
+  color: var(--orange);
+}
+.text-sea-500 {
+  color: var(--sea);
+}
+.text-lightPurple {
+  color: var(--purple);
+}
+body {
+  font-family: var(--font-sarabun), sans-serif !important;
+  font-size: 14px;
+  background-color: #f8f8f8;
+}
+.bg-login {
+  background-image: url("/cc.png");
+  background-size: cover;
+  background-position: center;
+}
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif !important;
+}
+
+input:disabled {
+  @apply text-gray-900 border border-gray-200 rounded bg-gray-100;
+}
+.input-formcontrol-sm {
+  @apply text-xs 
+    w-full 
+    p-1
+    text-neutral-900 
+    border 
+    border-neutral-300 
+    rounded 
+    bg-white
+    focus:ring-blue-300 
+    focus:border-blue-300 
+    focus:outline-none
+    focus:ring-2;
+}
+.input-formcontrol-sm:disabled {
+  @apply text-xs 
+    w-full 
+    p-1
+    py-[0.2rem]
+    text-[#0000006b]
+    border 
+    border-[#d9d9d9]
+    rounded 
+    bg-[#0000000a]
+    focus:ring-blue-500 
+    focus:border-blue-500;
+}
+.input-formcontrol {
+  @apply text-sm 
+    w-full 
+    px-2
+    py-[0.32rem]
+    text-neutral-900 
+    border 
+    border-neutral-300 
+    rounded 
+    bg-white
+    focus:ring-blue-500/50 
+    focus:border-blue-300 
+    focus:outline-none
+    focus:ring-2;
+}
+.input-formcontrol:disabled {
+  @apply text-sm 
+    w-full 
+    px-2
+    py-[0.32rem]
+    text-[#0000006b]
+    border 
+    border-[#d9d9d9]
+    rounded 
+    bg-[#0000000a]
+    focus:ring-blue-500 
+    focus:border-blue-500;
+}
+.input-formcontrol.text-small {
+  @apply text-[13px];
+}
+.badge-mint {
+  @apply px-4 py-0.5 bg-mint-200 text-mint-600 rounded-full;
+}
+.badge-biscuit {
+  @apply px-4 py-0.5 bg-biscuit-100 text-biscuit-600 rounded-full;
+}
+.badge-sea {
+  @apply px-4 py-0.5 bg-sea-100 text-sea-700 rounded-full;
+}
+.badge-red {
+  @apply px-2 py-0.5 bg-red-500 text-red-50 rounded font-medium;
+}
+.btn {
+  @apply py-2.5 px-5 text-sm font-medium 
+  text-gray-900 focus:outline-none rounded-lg cursor-pointer;
+}
+.btn-sm {
+  @apply px-3 py-1.5 text-sm font-medium 
+  text-gray-900 focus:outline-none rounded-[6] cursor-pointer;
+}
+.btn-xs {
+  @apply px-3 py-1 text-xs font-medium 
+  text-gray-900 focus:outline-none rounded-[6] cursor-pointer;
+}
+
+.btn-login {
+  @apply bg-neutral-600 hover:bg-neutral-700 text-white hover:text-white
+  focus:ring-4 focus:ring-neutral-200 focus:outline-none rounded;
+}
+.btn-biscuit {
+  @apply bg-[#F2B366] hover:bg-[#e6ae6a] text-white hover:text-white
+  focus:ring-4 focus:ring-[#fbe1c4] focus:outline-none;
+}
+.btn-outlineBiscuit {
+  @apply bg-white hover:bg-[#F2B366] text-[#F2B366] hover:text-white
+  border border-[#F2B366]
+  focus:ring-4 focus:ring-[#fbe1c4] focus:outline-none;
+}
+.btn-latte {
+  @apply bg-latte-500 hover:bg-latte-600 text-white hover:text-white
+  focus:ring-4 focus:ring-latte-300 focus:outline-none;
+}
+.btn-outlineLatte {
+  @apply bg-white hover:bg-latte-500 text-latte-500 hover:text-white
+  border border-latte-500
+  focus:ring-4 focus:ring-latte-300 focus:outline-none;
+}
+.btn-mint {
+  @apply bg-[#80BFB4] hover:bg-[#6ea69c] text-white hover:text-white
+  focus:ring-4 focus:ring-[#cde5e0] focus:outline-none;
+}
+.btn-outlineMint {
+  @apply bg-white hover:bg-[#80BFB4] text-[#80BFB4] hover:text-white
+  border border-[#80BFB4]
+  focus:ring-4 focus:ring-[#cde5e0] focus:outline-none;
+}
+.btn-lightPurple {
+  @apply bg-lightPurple-500 hover:bg-lightPurple-600 text-white hover:text-white
+  focus:ring-4 focus:ring-lightPurple-300 focus:outline-none;
+}
+.btn-outlineLightpurple {
+  @apply bg-white hover:bg-lightPurple-500 text-lightPurple-500 hover:text-white
+  border border-lightPurple-500
+  focus:ring-4 focus:ring-lightPurple-300 focus:outline-none;
+}
+.btn-pinky {
+  @apply bg-pinky-500 hover:bg-pinky-600 text-white hover:text-white
+  focus:ring-4 focus:ring-pinky-300 focus:outline-none;
+}
+.btn-outlinePinky {
+  @apply bg-white hover:bg-pinky-500 text-pinky-500 hover:text-white
+  border border-pinky-500
+  focus:ring-4 focus:ring-pinky-300 focus:outline-none;
+}
+
+.btn-green {
+  @apply bg-green-600 hover:bg-green-700 text-white hover:text-white
+   focus:ring-4 focus:ring-green-300 focus:outline-none;
+}
+.btn-outlineGreen {
+  @apply bg-white hover:bg-green-600 text-green-600 hover:text-white
+  border border-green-600
+  focus:ring-4 focus:ring-green-300 focus:outline-none;
+}
+.btn-red {
+  @apply bg-red-500 hover:bg-red-600 text-white hover:text-white
+   focus:ring-4 focus:ring-red-300 focus:outline-none;
+}
+.btn-outlineRed {
+  @apply bg-white hover:bg-red-500 text-red-500 hover:text-white
+  border border-red-500
+  focus:ring-4 focus:ring-red-300 focus:outline-none;
+}
+.btn-sea {
+  @apply bg-sea-500 hover:bg-sea-600 text-white hover:text-white
+  focus:ring-4 focus:ring-sea-300 focus:outline-none;
+}
+.btn-outlineSea {
+  @apply bg-white hover:bg-sea-500 text-sea-500 hover:text-white
+  border border-sea-500
+  focus:ring-4 focus:ring-sea-300 focus:outline-none;
+}
+.btn-gray {
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-600 hover:text-gray-700
+  focus:ring-4 focus:ring-gray-300 focus:outline-none;
+}
+.btn-outlineGray {
+  @apply bg-white hover:bg-gray-300 text-gray-500 hover:text-gray-600
+  border border-gray-500 hover:border-gray-300
+  focus:ring-4 focus:ring-gray-300 focus:outline-none;
+}
+.card {
+  @apply p-6 bg-white rounded-lg shadow-sm;
+}
+.card-sm {
+  @apply p-4 bg-white rounded-lg shadow-sm;
+}
+.card-header {
+  @apply py-4 rounded-t-lg border-t-gray-200;
+}
+.card-body {
+  @apply p-6 rounded-b-lg border-t-gray-200 shadow-sm;
+}
+
+.table thead {
+  @apply bg-neutral-200;
+}
+.table thead tr th {
+  @apply text-neutral-800 p-2;
+}
+.table tbody {
+  @apply bg-white;
+}
+
+
+.table tbody tr td {
+  @apply p-2;
+}
+
+.table-bordered {
+  @apply w-full border border-gray-200 text-sm text-gray-700;
+  border-collapse: collapse;
+}
+.table-bordered thead {
+  @apply bg-neutral-200;
+}
+.table-bordered thead tr th {
+  @apply text-neutral-800 p-2 border-b border-gray-200 border-r border-gray-200;
+}
+.table-bordered thead tr th:last-child {
+  @apply border-r-0; /* Avoid double right border */
+}
+.table-bordered tbody {
+  @apply bg-white;
+}
+
+.table-hover tbody tr:hover {
+  @apply bg-gray-100;
+}
+.table-bordered tbody tr td {
+  @apply p-2 border-b border-gray-200 border-r border-gray-200;
+}
+.table-bordered tbody tr td:last-child {
+  @apply border-r-0;
+}
+
+.table-striped thead {
+  @apply bg-neutral-200 border border-gray-200;
+}
+.table-striped thead tr th {
+  @apply text-neutral-800 border border-gray-200 p-2;
+}
+.table-striped tbody {
+  @apply bg-white;
+}
+.table-striped tbody tr:nth-child(odd) {
+  @apply bg-zinc-50; /* Light gray background for odd rows */
+}
+.table-striped tbody tr td {
+  @apply p-2 border border-gray-200;
+}
+
+.text-title {
+  @apply text-stone-700 font-bold;
+}
+
+.ant-table-wrapper .ant-table-thead th.thead-align-center {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.ant-table-cell {
+  padding: 8px !important;
+  /* font-family: var(--font-sarabun), sans-serif !important; */
+}
+
+.ant-table-wrapper .ant-table-thead th.bg-light-green {
+  background-color: #d4edda !important; /* Set your desired background color */
+}
+
+/* .ant-select-dropdown .ant-select-dropdown-menu input {
+  display: none !important;
+} */
+
+.ant-pagination-options .ant-select-selection-search {
+  display: none !important;
+}
+
+/* .ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector
+  .ant-select-selection-search-input {
+  display: none !important;
+} */
+
+.ant-pagination-options .ant-select-selector {
+  cursor: default !important;
+}
+
+.ant-pagination-options .ant-select-dropdown .ant-select-item {
+  cursor: default !important;
+}
+
+/*---break---*/
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
